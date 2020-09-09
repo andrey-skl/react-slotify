@@ -16,7 +16,6 @@ yarn add react-slotify
 
 In a component where you want to hold slots in, create and place a slot. You may have as many slots as you want.
 ```typescript jsx
-...
 import {createSlot} from 'react-slotify';
 
 export const MySlot = createSlot();
