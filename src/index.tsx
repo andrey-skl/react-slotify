@@ -22,7 +22,7 @@ type SlotType<P> = {
   Renderer: RendererType<P>;
 };
 
-export function createSlot<P extends Object>(): SlotType<P> {
+export function createSlot<P extends {}>(): SlotType<P> {
   const Slot: SlotType<P> = ({ children, showChildren, restProps }) => {
     if (!showChildren) {
       return null;
