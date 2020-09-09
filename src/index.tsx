@@ -4,21 +4,33 @@ interface RendererProps {
   childs: React.ReactNode;
 }
 
-type RendererType = React.FC<RendererProps>;
+type RendererType<P> = React.FC<RendererProps & P>;
 
-interface SlotProps {
+interface SlotProps<P> {
   showChildren?: boolean;
+  restProps?: P
 }
 
-type SlotType = React.FC & {
-  Renderer: RendererType;
+type NormalOrFunctionChildren<P> = React.ReactNode | ((props: P) => React.ReactNode);
+
+type SlotType<P> = {
+  (props: SlotProps<P> & {children?: NormalOrFunctionChildren<P>}): React.ReactElement<any, any> | null;
+  Renderer: RendererType<P>;
 };
 
-export function createSlot(): SlotType {
-  const Slot: React.FC<SlotProps> = ({ children, showChildren }) =>
-    showChildren ? <>{children}</> : null;
+export function createSlot<P extends Object>(): SlotType<P> {
 
-  const Renderer: RendererType = ({ childs, children }) => {
+  const Slot: SlotType<P> = ({ children, showChildren, restProps }) => {
+    if (!showChildren) {
+      return null;
+    }
+    if (typeof children === 'function' && restProps) {
+      return children(restProps);
+    }
+    return <>{children}</>;
+  };
+
+  const Renderer: RendererType<P> = ({ childs, children, ...restProps }) => {
     const slotted = React.Children.toArray(childs).find(child => {
       return React.isValidElement(child) && child.type === Slot;
     });
@@ -26,10 +38,12 @@ export function createSlot(): SlotType {
     if (!slotted || !React.isValidElement(slotted)) {
       return <>{children}</>;
     }
-    return React.cloneElement(slotted, { showChildren: true } as SlotProps);
+    return React.cloneElement(slotted, {
+      showChildren: true,
+      restProps,
+    } as unknown as SlotProps<P>);
   };
 
-  (Slot as SlotType).Renderer = Renderer;
-
-  return Slot as SlotType;
+  Slot.Renderer = Renderer;
+  return Slot as SlotType<P>;
 }

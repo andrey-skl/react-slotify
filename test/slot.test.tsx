@@ -58,4 +58,30 @@ describe('Slot', () => {
         .toJSON()
     ).toMatchSnapshot();
   });
+
+  it('Should pass parameters', () => {
+    const TestSlot = createSlot<{foo: string}>();
+
+    const Component: React.FC = ({ children }) => {
+      return (
+        <pre>
+          <TestSlot.Renderer childs={children} foo="bar"/>
+        </pre>
+      );
+    };
+
+    expect(
+      renderer
+        .create(
+          <main>
+            <Component>
+              <TestSlot>
+                {params => <div>foo={params.foo}</div>}
+              </TestSlot>
+            </Component>
+          </main>
+        )
+        .toJSON()
+    ).toMatchSnapshot();
+  });
 });

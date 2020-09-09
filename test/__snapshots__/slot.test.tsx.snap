@@ -1,5 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Slot Should pass parameters 1`] = `
+<main>
+  <pre>
+    <div>
+      foo=
+      bar
+    </div>
+  </pre>
+</main>
+`;
+
 exports[`Slot Should render default content if slot is not used 1`] = `
 <main>
   beforecomponent

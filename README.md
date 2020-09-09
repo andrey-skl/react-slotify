@@ -53,6 +53,32 @@ const App = () => {
 };
 ```
 
+## Passing props back from inside slot
+
+```typescript jsx
+export const Slot = createSlot<{myParam: string}>();
+
+export const Component = ({children}) => (
+  <MySlot.Renderer childs={children} myParam="123">
+    This is default slot content
+  </MySlot.Renderer>
+);
+
+...
+
+const App = () => {
+  return (
+    <div>
+      <Component>
+        <MySlot>
+          {params => (<div>Param is {params.myParam}</div>)}
+        </MySlot>
+      </Component>
+    </div>
+  );
+};
+```
+
 ## Features
 
  - Written in TypeScript with type-safe API
