@@ -13,7 +13,7 @@ A tiny way to use Slots concept in modern React apps.
 
 - **✅ Replaces ["renderProps"](https://reactjs.org/docs/render-props.html) concept in a semantic way**
 - **✅ Written in TypeScript with type-safe API**
-- **✅ Lightweight (~500b)**
+- **✅ Lightweight (~500B)**
 - **✅ Simple**
 
 ## Installation
