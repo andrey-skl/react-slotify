@@ -14,7 +14,7 @@ interface SlotProps<P> {
 type NormalOrFunctionChildren<P> = React.ReactNode | ((props: P) => React.ReactNode);
 
 type SlotType<P> = {
-  (props: SlotProps<P> & {children?: NormalOrFunctionChildren<P>}): React.ReactElement<any, any> | null;
+  (props: SlotProps<P> & {children?: NormalOrFunctionChildren<P>}): React.ReactElement | null;
   Renderer: RendererType<P>;
 };
 
