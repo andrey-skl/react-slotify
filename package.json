@@ -1,4 +1,6 @@
 {
+  "name": "react-slotify",
+  "author": "Andrey Skladchikov",
   "version": "0.1.0",
   "license": "MIT",
   "main": "dist/index.js",
@@ -31,8 +33,6 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "react-slotify",
-  "author": "Andrey Skladchikov",
   "module": "dist/react-slotify.esm.js",
   "devDependencies": {
     "@types/react": "^16.9.49",
