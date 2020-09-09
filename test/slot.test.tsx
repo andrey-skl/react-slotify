@@ -60,12 +60,12 @@ describe('Slot', () => {
   });
 
   it('Should pass parameters', () => {
-    const TestSlot = createSlot<{foo: string}>();
+    const TestSlot = createSlot<{ foo: string }>();
 
     const Component: React.FC = ({ children }) => {
       return (
         <pre>
-          <TestSlot.Renderer childs={children} foo="bar"/>
+          <TestSlot.Renderer childs={children} foo="bar" />
         </pre>
       );
     };
@@ -75,9 +75,7 @@ describe('Slot', () => {
         .create(
           <main>
             <Component>
-              <TestSlot>
-                {params => <div>foo={params.foo}</div>}
-              </TestSlot>
+              <TestSlot>{params => <div>foo={params.foo}</div>}</TestSlot>
             </Component>
           </main>
         )
