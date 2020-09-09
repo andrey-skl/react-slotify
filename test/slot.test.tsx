@@ -38,7 +38,9 @@ describe('Slot', () => {
       return (
         <pre>
           beforeslot
-          <TestSlot.Renderer childs={children}>DEFAULT_SLOT_CONTENT</TestSlot.Renderer>
+          <TestSlot.Renderer childs={children}>
+            DEFAULT_SLOT_CONTENT
+          </TestSlot.Renderer>
           afterslot; ownChildren: {children}
         </pre>
       );

@@ -15,11 +15,10 @@ type SlotType = React.FC & {
 };
 
 export function createSlot(): SlotType {
-  const Slot: React.FC<SlotProps> = ({children, showChildren}) => (
-    showChildren ? <>{children}</> : null
-  );
+  const Slot: React.FC<SlotProps> = ({ children, showChildren }) =>
+    showChildren ? <>{children}</> : null;
 
-  const Renderer: RendererType = ({childs, children}) => {
+  const Renderer: RendererType = ({ childs, children }) => {
     const slotted = React.Children.toArray(childs).find(child => {
       return React.isValidElement(child) && child.type === Slot;
     });
@@ -27,8 +26,8 @@ export function createSlot(): SlotType {
     if (!slotted || !React.isValidElement(slotted)) {
       return <>{children}</>;
     }
-    return React.cloneElement(slotted, {showChildren: true} as SlotProps);
-  }
+    return React.cloneElement(slotted, { showChildren: true } as SlotProps);
+  };
 
   (Slot as SlotType).Renderer = Renderer;
 
