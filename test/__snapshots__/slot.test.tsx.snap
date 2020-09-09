@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Slot Should render default content if slot is not used 1`] = `
+<main>
+  beforecomponent
+  <pre>
+    beforeslot
+    DEFAULT_SLOT_CONTENT
+    afterslot; ownChildren: 
+    Slot not used
+  </pre>
+  aftercomponent
+</main>
+`;
+
+exports[`Slot Should render to slot 1`] = `
+<div>
+  beforecomponent
+  <div>
+    beforeslot 
+    IN_SLOT
+     afterslot; ownChildren: 
+    BEFORE_SLOT
+    AFTER_SLOT
+  </div>
+  aftercomponent
+</div>
+`;
