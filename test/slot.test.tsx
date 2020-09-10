@@ -101,7 +101,9 @@ describe('Slot', () => {
         .create(
           <main>
             <Component>
-              <TestSlot>{params => <div>foo={params.defaultChildren}</div>}</TestSlot>
+              <TestSlot>
+                {params => <div>foo={params.defaultChildren}</div>}
+              </TestSlot>
             </Component>
           </main>
         )
