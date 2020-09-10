@@ -82,4 +82,30 @@ describe('Slot', () => {
         .toJSON()
     ).toMatchSnapshot();
   });
+
+  it('Should pass default children to function', () => {
+    const TestSlot = createSlot();
+
+    const Component: React.FC = ({ children }) => {
+      return (
+        <pre>
+          <TestSlot.Renderer childs={children}>
+            DEFAULT_SLOT_CONTENT
+          </TestSlot.Renderer>
+        </pre>
+      );
+    };
+
+    expect(
+      renderer
+        .create(
+          <main>
+            <Component>
+              <TestSlot>{params => <div>foo={params.defaultChildren}</div>}</TestSlot>
+            </Component>
+          </main>
+        )
+        .toJSON()
+    ).toMatchSnapshot();
+  });
 });

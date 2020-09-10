@@ -1,5 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Slot Should pass default children to function 1`] = `
+<main>
+  <pre>
+    <div>
+      foo=
+      DEFAULT_SLOT_CONTENT
+    </div>
+  </pre>
+</main>
+`;
+
 exports[`Slot Should pass parameters 1`] = `
 <main>
   <pre>

@@ -21,6 +21,12 @@ const App = () => {
         <Slot>{params => <span>Param={params.myParam}</span>}</Slot>
         Bobobo
       </Component>
+
+      <h4>Or you can render default content if needed</h4>
+      <Component>
+        <Slot>{params => <span>Default slot content = {params.defaultChildren}</span>}</Slot>
+        Bobobo
+      </Component>
     </main>
   );
 };

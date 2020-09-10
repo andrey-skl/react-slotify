@@ -6,14 +6,14 @@ interface RendererProps {
 
 type RendererType<P> = React.FC<RendererProps & P>;
 
-interface SlotProps<P> {
+type SlotProps<P> = {
   showChildren?: boolean;
-  restProps?: P;
+  restProps?: P & {defaultChildren: React.ReactNode};
 }
 
 type NormalOrFunctionChildren<P> =
   | React.ReactNode
-  | ((props: P) => React.ReactNode);
+  | ((props: P & {defaultChildren: React.ReactNode}) => React.ReactNode);
 
 type SlotType<P> = {
   (
@@ -23,7 +23,7 @@ type SlotType<P> = {
 };
 
 export function createSlot<P extends {}>(): SlotType<P> {
-  const Slot: SlotType<P> = ({ children, showChildren, restProps }) => {
+  const Slot: SlotType<P> = ({ children, showChildren, restProps}) => {
     if (!showChildren) {
       return null;
     }
@@ -43,7 +43,7 @@ export function createSlot<P extends {}>(): SlotType<P> {
     }
     return React.cloneElement(slotted, ({
       showChildren: true,
-      restProps,
+      restProps: {...restProps, defaultChildren: children},
     } as unknown) as SlotProps<P>);
   };
 
