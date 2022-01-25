@@ -1,4 +1,4 @@
-# React-slotify
+# React-slotify ([Try now](https://codesandbox.io/s/react-slotify-example-vo2ix))
 
 [![Build Status][build-badge]][build]
 [![npm bundle size][npm-bundle-size]][build]
