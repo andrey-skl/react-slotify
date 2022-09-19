@@ -2,6 +2,7 @@ import * as React from 'react';
 
 interface RendererProps {
   childs: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 type RendererType<P> = React.FC<RendererProps & P>;
@@ -23,7 +24,7 @@ type SlotType<P> = {
 };
 
 export function createSlot<P extends {}>(): SlotType<P> {
-  const Slot: SlotType<P> = ({ children, showChildren, restProps }) => {
+  const Slot: SlotType<P> = (({ children, showChildren, restProps }) => {
     if (!showChildren) {
       return null;
     }
@@ -31,7 +32,7 @@ export function createSlot<P extends {}>(): SlotType<P> {
       return children(restProps);
     }
     return <>{children}</>;
-  };
+  }) as SlotType<P>;
 
   const Renderer: RendererType<P> = ({ childs, children, ...restProps }) => {
     const slotted = React.Children.toArray(childs).find(child => {
@@ -48,5 +49,5 @@ export function createSlot<P extends {}>(): SlotType<P> {
   };
 
   Slot.Renderer = Renderer;
-  return Slot as SlotType<P>;
+  return Slot;
 }

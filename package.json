@@ -1,7 +1,7 @@
 {
   "name": "react-slotify",
   "author": "Andrey Skladchikov",
-  "version": "0.1.7",
+  "version": "0.2.0",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -11,7 +11,7 @@
     "src"
   ],
   "engines": {
-    "node": ">=10"
+    "node": ">=14"
   },
   "scripts": {
     "start": "tsdx watch",
@@ -36,13 +36,13 @@
   },
   "module": "dist/react-slotify.esm.js",
   "devDependencies": {
-    "@types/react": "^16.9.49",
-    "@types/react-dom": "^16.9.8",
-    "@types/react-test-renderer": "^16.9.3",
+    "@types/react": "^18.0.20",
+    "@types/react-dom": "^18.0.6",
+    "@types/react-test-renderer": "^18.0.0",
     "husky": "^4.3.0",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-test-renderer": "^16.13.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-test-renderer": "^18.2.0",
     "tsdx": "^0.14.1",
     "tslib": "^2.4.0",
     "typescript": "^4.8.3"

@@ -3,11 +3,15 @@ import renderer from 'react-test-renderer';
 
 import { createSlot } from '../src';
 
+interface WithChildren {
+  children: React.ReactNode;
+}
+
 describe('Slot', () => {
   it('Should render to slot', () => {
     const TestSlot = createSlot();
 
-    const Component: React.FC = ({ children }) => {
+    const Component: React.FC<WithChildren> = ({ children }) => {
       return (
         <div>
           beforeslot <TestSlot.Renderer childs={children} /> afterslot;
@@ -34,7 +38,7 @@ describe('Slot', () => {
   it('Should render default content if slot is not used', () => {
     const TestSlot = createSlot();
 
-    const Component: React.FC = ({ children }) => {
+    const Component: React.FC<WithChildren> = ({ children }) => {
       return (
         <pre>
           beforeslot
@@ -62,7 +66,7 @@ describe('Slot', () => {
   it('Should pass parameters', () => {
     const TestSlot = createSlot<{ foo: string }>();
 
-    const Component: React.FC = ({ children }) => {
+    const Component: React.FC<WithChildren> = ({ children }) => {
       return (
         <pre>
           <TestSlot.Renderer childs={children} foo="bar" />
@@ -86,7 +90,7 @@ describe('Slot', () => {
   it('Should pass default children to function', () => {
     const TestSlot = createSlot();
 
-    const Component: React.FC = ({ children }) => {
+    const Component: React.FC<WithChildren> = ({ children }) => {
       return (
         <pre>
           <TestSlot.Renderer childs={children}>
