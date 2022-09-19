@@ -5,6 +5,7 @@
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
+  "packageManager": "yarn@1.22.15",
   "files": [
     "dist",
     "src"
