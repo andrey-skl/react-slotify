@@ -134,7 +134,7 @@ For vanilla CSS, you can include it at the root directory and add it to the `fil
 
 ## Publishing to NPM
 
-We recommend using [np](https://github.com/sindresorhus/np).
+Just make a commit like `Release 0.1.7`, where you update the version in package.json
 
 ## Usage with Lerna
 
