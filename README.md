@@ -66,6 +66,7 @@ const App = () => {
 };
 ```
 
+
 ## Passing props back from inside slot
 
 If your slot conent need some params from inside such as `disabled` state, you are welcome to parametrize it:
